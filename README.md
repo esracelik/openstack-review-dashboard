@@ -8,6 +8,6 @@ that creates a dashboard in review.openstack.org page
 Usage
 =====
 
-python -m reviewSearcher <filter file>
+python -m reviewSearcher.main filterfile
 
 
