@@ -1,0 +1,67 @@
+(project:openstack/openstack-manuals OR 
+project:openstack/api-site OR 
+project:openstack/object-api OR 
+project:openstack/image-api OR 
+project:openstack/identity-api OR 
+project:openstack/compute-api OR 
+project:openstack/volume-api OR 
+project:openstack/netconn-api OR 
+project:openstack/operations-guide OR 
+project:openstack/security-doc OR 
+project:openstack/training-guides OR 
+project:openstack/openstack-doc-tools OR 
+project:stackforge/clouddocs-maven-plugin) 
+status:open 
+NOT owner:self 
+NOT label:Workflow<=-1 
+label:Verified>=1%2cjenkins 
+NOT label:Code-Review<=-1%2cself 
+NOT label:Code-Review>=1%2cself
+&title\=
+Ops/User Docs Review Inbox
+&Needs feedback (Changes older than 5 days that have not been reviewed by anyone)\=
+NOT label:Code-Review<=2 age:5d
+&API Docs\=
+(project:openstack/api-site OR 
+project:openstack/object-api OR 
+project:openstack/image-api OR 
+project:openstack/identity-api OR 
+project:openstack/compute-api OR 
+project:openstack/volume-api OR 
+project:openstack/netconn-api) 
+status:open
+&Ops/Admin Docs\=
+(project:openstack/openstack-manuals OR 
+project:openstack/operations-guide OR 
+project:openstack/security-doc) 
+status:open
+&Training\=
+project:openstack/training-guides
+&Doc Tools\=
+(project:openstack/openstack-doc-tools OR 
+project:stackforge/clouddocs-maven-plugin) 
+status:open
+&You are a reviewer (but haven't voted in the current revision)\=
+reviewer:self
+&Needs final +2\=
+(project:openstack/openstack-manuals OR 
+project:openstack/api-site OR 
+project:openstack/object-api OR 
+project:openstack/image-api OR 
+project:openstack/identity-api OR 
+project:openstack/compute-api OR 
+project:openstack/volume-api OR 
+project:openstack/netconn-api OR 
+project:openstack/operations-guide OR 
+project:openstack/security-doc OR 
+project:openstack/training-guides) 
+label:Code-Review>=2 
+limit:50
+&Passed Jenkins (with no negative feedback)\=
+NOT label:Code-Review>=2 
+NOT label:Code-Review<=-1 
+limit:50
+&Wayward Changes (Changes with no code review in the last two days)\=
+NOT label:Code-Review<=2 
+age:2d
+

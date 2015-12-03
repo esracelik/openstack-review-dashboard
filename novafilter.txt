@@ -1,0 +1,50 @@
+(project:openstack/nova OR 
+project:openstack/nova-specs OR 
+project:openstack/python-novaclient OR 
+project:openstack/puppet-nova OR 
+project:openstack/nova-powervm OR 
+project:openstack/nova-docker OR 
+project:openstack/nova-zvm-virt-driver OR 
+project:openstack/nova-solver-scheduler OR 
+project:openstack/fuel-plugin-nova-nfs OR 
+project:openstack/blazar-nova OR 
+project:openstack/ec2-api) 
+status:open 
+NOT owner:self 
+NOT label:Workflow<=-1 
+label:Verified>=1%2cjenkins 
+NOT label:Code-Review<=-1%2cself 
+NOT label:Code-Review>=1%2cself
+&title\=
+Nova Review Inbox
+&You are a reviewer (but haven't voted in the current revision)\=
+reviewer:self
+&Needs feedback (Changes older than 5 days that have not been reviewed by anyone)\=
+NOT label:Code-Review<=2 
+age:5d 
+limit:50
+&Needs final +2\=
+label:Code-Review>=2 
+limit:50
+&Passed Jenkins (with no negative feedback)\=
+NOT label:Code-Review>=2 
+NOT label:Code-Review<=-1 
+limit:50
+&Wayward Changes (Changes with no code review in the last two days)\=
+NOT label:Code-Review<=2 
+age:2d
+&All Nova Related\=
+(project:openstack/nova OR 
+project:openstack/nova-specs OR 
+project:openstack/python-novaclient OR 
+project:openstack/puppet-nova OR 
+project:openstack/nova-powervm OR 
+project:openstack/nova-docker OR 
+project:openstack/nova-zvm-virt-driver OR 
+project:openstack/nova-solver-scheduler OR 
+project:openstack/fuel-plugin-nova-nfs OR 
+project:openstack/blazar-nova OR 
+project:openstack/ec2-api) 
+status:open
+
+
